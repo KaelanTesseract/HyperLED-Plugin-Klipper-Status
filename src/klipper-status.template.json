@@ -1,0 +1,289 @@
+{
+  "format": 1,
+  "id": "klipper-status",
+  "name": "Klipper-Statusanzeige",
+  "version": "1.6.1",
+  "author": "HyperLED",
+  "license": "EUPL-1.2",
+  "description": "Zeigt den Zustand eines Klipper-3D-Druckers (über Moonraker) als Licht: Leerlauf, Vorheizen, Druckfortschritt, Pause, Fehler, fertig.",
+  "needs": {
+    "api": 1,
+    "script": 1
+  },
+  "settings": [
+    {
+      "key": "host",
+      "type": "text",
+      "label": {
+        "de": "Drucker-Adresse (Moonraker)",
+        "en": "Printer address (Moonraker)",
+        "ru": "Адрес принтера (Moonraker)"
+      },
+      "hint": {
+        "de": "IP-Adresse oder Name des Druckers, zum Beispiel 192.168.1.50",
+        "en": "IP address or name of the printer, for example 192.168.1.50",
+        "ru": "IP-адрес или имя принтера, например 192.168.1.50"
+      }
+    },
+    {
+      "key": "port",
+      "type": "number",
+      "default": 7125,
+      "min": 1,
+      "max": 65535,
+      "label": {
+        "de": "Port",
+        "en": "Port",
+        "ru": "Порт"
+      },
+      "hint": {
+        "de": "Moonraker hört standardmäßig auf 7125",
+        "en": "Moonraker listens on 7125 by default",
+        "ru": "По умолчанию Moonraker слушает порт 7125"
+      }
+    },
+    {
+      "key": "apikey",
+      "type": "password",
+      "optional": true,
+      "label": {
+        "de": "API-Schlüssel (optional)",
+        "en": "API key (optional)",
+        "ru": "Ключ API (необязательно)"
+      },
+      "hint": {
+        "de": "Nur nötig, wenn dieses HyperLED nicht zu den trusted_clients in der moonraker.conf gehört",
+        "en": "Only needed if this HyperLED is not one of the trusted_clients in moonraker.conf",
+        "ru": "Нужен, только если этого HyperLED нет в trusted_clients в moonraker.conf"
+      }
+    },
+    {
+      "key": "segment",
+      "type": "segment",
+      "label": {
+        "de": "Segment",
+        "en": "Segment",
+        "ru": "Сегмент"
+      }
+    },
+    {
+      "key": "direction",
+      "type": "list",
+      "default": "ltr",
+      "options": [
+        { "value": "ltr", "label": { "de": "Von links nach rechts", "en": "Left to right", "ru": "Слева направо" } },
+        { "value": "rtl", "label": { "de": "Von rechts nach links", "en": "Right to left", "ru": "Справа налево" } },
+        { "value": "both", "label": { "de": "Von beiden Seiten zur Mitte", "en": "From both ends to the middle", "ru": "С обоих концов к центру" } },
+        { "value": "center", "label": { "de": "Von der Mitte nach außen", "en": "From the middle outwards", "ru": "От центра к краям" } }
+      ],
+      "label": {
+        "de": "Richtung des Balkens",
+        "en": "Direction of the bar",
+        "ru": "Направление полосы"
+      },
+      "hint": {
+        "de": "Wie sich der Balken beim Vorheizen und Drucken füllt",
+        "en": "How the bar fills while preheating and printing",
+        "ru": "Как заполняется полоса при нагреве и печати"
+      }
+    },
+    {
+      "key": "heat_margin",
+      "type": "number",
+      "default": 10,
+      "min": 2,
+      "max": 60,
+      "label": {
+        "de": "Vorheizen ab Abstand (°C)",
+        "en": "Preheating when this far below target (°C)",
+        "ru": "Нагрев при разнице (°C)"
+      },
+      "hint": {
+        "de": "Als Vorheizen gilt, wenn eine Düse oder das Bett mehr als so viele Grad unter ihrer Solltemperatur liegt",
+        "en": "Counts as preheating when the nozzle or bed is more than this many degrees below its target",
+        "ru": "Считается нагревом, если сопло или стол ниже заданной температуры больше, чем на это число градусов"
+      }
+    },
+    {
+      "key": "brightness",
+      "type": "number",
+      "default": 100,
+      "min": 5,
+      "max": 100,
+      "label": {
+        "de": "Helligkeit der Anzeige (%)",
+        "en": "Brightness of the display (%)",
+        "ru": "Яркость индикации (%)"
+      },
+      "hint": {
+        "de": "Dimmt nur die Farben dieses Plugins; die Helligkeit des Segments gilt zusätzlich. Wirkt nur mit dem Skript",
+        "en": "Dims only this plugin's colours; the segment's brightness applies on top. Only works with the script",
+        "ru": "Затемняет только цвета плагина; яркость сегмента действует поверх. Работает только со скриптом"
+      }
+    },
+    {
+      "key": "head_pulse",
+      "type": "switch",
+      "default": false,
+      "label": {
+        "de": "Vorderstes Pixel atmet beim Drucken",
+        "en": "Front pixel breathes while printing",
+        "ru": "Передний пиксель дышит"
+      },
+      "hint": {
+        "de": "Aus ist ruhiger: Das Atmen schickt öfter Bilder an die LEDs, und manche Streifen flackern dann",
+        "en": "Off is calmer: breathing sends more pictures to the LEDs, and some strips flicker then",
+        "ru": "Выкл. спокойнее: дыхание чаще шлёт кадры на светодиоды, и некоторые ленты мерцают"
+      }
+    },
+    {
+      "key": "c_idle",
+      "type": "color",
+      "default": "#001a33",
+      "label": {
+        "de": "Farbe im Leerlauf",
+        "en": "Colour when idle",
+        "ru": "Цвет в простое"
+      },
+      "hint": {
+        "de": "Schwarz schaltet das Segment im Leerlauf dunkel",
+        "en": "Black darkens the segment while idle",
+        "ru": "Чёрный гасит сегмент в простое"
+      }
+    },
+    {
+      "key": "c_heat",
+      "type": "color",
+      "default": "#ff7a00",
+      "label": {
+        "de": "Farbe beim Vorheizen",
+        "en": "Colour when preheating",
+        "ru": "Цвет при нагреве"
+      }
+    },
+    {
+      "key": "c_print",
+      "type": "color",
+      "default": "#00d060",
+      "label": {
+        "de": "Farbe beim Drucken",
+        "en": "Colour when printing",
+        "ru": "Цвет при печати"
+      }
+    },
+    {
+      "key": "c_pause",
+      "type": "color",
+      "default": "#ffc800",
+      "label": {
+        "de": "Farbe bei Pause",
+        "en": "Colour when paused",
+        "ru": "Цвет при паузе"
+      }
+    },
+    {
+      "key": "c_done",
+      "type": "color",
+      "default": "#00c8ff",
+      "label": {
+        "de": "Farbe wenn fertig",
+        "en": "Colour when finished",
+        "ru": "Цвет по завершении"
+      }
+    },
+    {
+      "key": "c_error",
+      "type": "color",
+      "default": "#ff0000",
+      "label": {
+        "de": "Farbe bei Fehler",
+        "en": "Colour on error",
+        "ru": "Цвет при ошибке"
+      }
+    },
+    {
+      "key": "show_done",
+      "type": "switch",
+      "default": true,
+      "label": {
+        "de": "„Fertig“ anzeigen",
+        "en": "Show “finished”",
+        "ru": "Показывать «готово»"
+      },
+      "hint": {
+        "de": "Zeigt nach einem Druck die Fertig-Farbe, bis der Drucker in den Leerlauf geht (idle_timeout in Klipper)",
+        "en": "Shows the finished colour after a print until the printer goes idle (idle_timeout in Klipper)",
+        "ru": "После печати показывает цвет «готово», пока принтер не перейдёт в простой (idle_timeout в Klipper)"
+      }
+    },
+    {
+      "key": "offline_color",
+      "type": "color",
+      "default": "#000000",
+      "label": {
+        "de": "Farbe ohne Verbindung",
+        "en": "Colour without connection",
+        "ru": "Цвет без связи"
+      },
+      "hint": {
+        "de": "Gilt, wenn der Drucker nicht antwortet (ausgeschaltet oder Moonraker nicht erreichbar). Schwarz = aus",
+        "en": "Applies when the printer does not answer (switched off or Moonraker unreachable). Black = off",
+        "ru": "Действует, когда принтер не отвечает (выключен или Moonraker недоступен). Чёрный = выкл."
+      }
+    }
+  ],
+  "source": {
+    "url": "http://{host}:{port}/printer/objects/query?print_stats=state,print_duration&display_status=progress&idle_timeout=state&extruder=temperature,target&extruder1=temperature,target&extruder2=temperature,target&extruder3=temperature,target&heater_bed=temperature,target",
+    "every": 5,
+    "timeout": 5,
+    "header": {
+      "X-Api-Key": "{apikey}"
+    }
+  },
+  "values": {
+    "state": "result.status.print_stats.state",
+    "duration": "result.status.print_stats.print_duration",
+    "progress": "result.status.display_status.progress * 100",
+    "idle": "result.status.idle_timeout.state",
+    "e0": "result.status.extruder.temperature",
+    "e1": "result.status.extruder1.temperature",
+    "e2": "result.status.extruder2.temperature",
+    "e3": "result.status.extruder3.temperature",
+    "bed": "result.status.heater_bed.temperature",
+    "g0": "result.status.extruder.target - result.status.extruder.temperature",
+    "g1": "result.status.extruder1.target - result.status.extruder1.temperature",
+    "g2": "result.status.extruder2.target - result.status.extruder2.temperature",
+    "g3": "result.status.extruder3.target - result.status.extruder3.temperature",
+    "bed_gap": "result.status.heater_bed.target - result.status.heater_bed.temperature"
+  },
+  "rules": [
+    {
+      "when": "state == 'error'",
+      "show": { "effect": "Stroboskop", "color": "{c_error}" }
+    },
+    {
+      "when": "state == 'paused'",
+      "show": { "effect": "Atmen", "color": "{c_pause}" }
+    },
+    {
+      "when": "state == 'complete' and show_done and not (idle == 'Idle')",
+      "show": { "effect": "Einfarbig", "color": "{c_done}" }
+    },
+    {
+      "when": "(state == 'standby' or (state == 'printing' and duration < 2)) and (g0 > heat_margin or g1 > heat_margin or g2 > heat_margin or g3 > heat_margin or bed_gap > heat_margin)",
+      "show": { "effect": "Atmen", "color": "{c_heat}" }
+    },
+    {
+      "when": "state == 'printing'",
+      "show": { "effect": "Einfarbig", "color": "{c_print}" }
+    },
+    {
+      "when": "state == 'standby' or state == 'complete' or state == 'cancelled'",
+      "show": { "effect": "Einfarbig", "color": "{c_idle}" }
+    }
+  ],
+  "on_error": {
+    "show": { "effect": "Einfarbig", "color": "{offline_color}" }
+  },
+  "script": ""
+}
