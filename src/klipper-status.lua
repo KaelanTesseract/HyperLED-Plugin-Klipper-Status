@@ -1,7 +1,7 @@
 -- HyperLED plugin "Klipper Status Display": draws the state of a Klipper 3D printer on the segment.
 --
 -- Copyright (c) 2026 Dennis Guse
--- Licensed under the PolyForm Noncommercial License 1.0.0 (see the LICENSE file of this repository).
+-- Licensed under the EUPL, Version 1.2 (see the LICENSE file of this repository).
 --
 --   idle      a dim colour
 --   heating   a bar that fills as the heaters approach their targets, breathing

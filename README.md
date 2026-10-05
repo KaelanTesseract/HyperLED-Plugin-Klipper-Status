@@ -256,26 +256,14 @@ what a plugin is and what it may do, and with
 [Developing plugins](https://github.com/KaelanTesseract/HyperLED/blob/main/docs/en/10_Plugins_entwickeln.md) if you
 want to write your own.
 
-This plugin is a separate work and not part of HyperLED. HyperLED itself is licensed under the EUPL-1.2; this plugin is
-licensed as described below.
+This plugin is a separate repository and not part of HyperLED's firmware; like HyperLED it is licensed under the
+EUPL-1.2.
 
 ## License
 
 Copyright (c) 2026 Dennis Guse.
 
-This plugin is licensed under the [**PolyForm Noncommercial License 1.0.0**](LICENSE)
-([text online](https://polyformproject.org/licenses/noncommercial/1.0.0)):
+This plugin is open source under the [**European Union Public Licence 1.2 (EUPL-1.2)**](LICENSE), the same license as
+HyperLED itself. You may use, change and share it, including for commercial purposes, under the terms of the license.
 
-- **Free for noncommercial use.** Use, copy, change and share it for personal use, hobby projects, learning and
-  research, and for charitable, educational and public organisations, as the license describes.
-- **Commercial use needs a commercial license from the author.** If you want to use the plugin in a business, in a
-  product, or in any way that makes money, you can buy a license from me. Get in touch through my GitHub profile
-  ([KaelanTesseract](https://github.com/KaelanTesseract)), for example by opening an issue titled "Commercial license"
-  in this repository.
-
-The plugin file names its license in its `license` field (`PolyForm-Noncommercial-1.0.0`), and the script carries a
-license header. The notice that has to travel with copies is in [`NOTICE`](NOTICE).
-
-A note in plain words: because commercial use is not free, this is **source-available**, not "open source" in the sense
-of the Open Source Initiative's definition. You can read, change and share all of it for noncommercial purposes.
-The PolyForm text is the binding one; this section only summarises it.
+The plugin file names its license in its `license` field (`EUPL-1.2`), and the script carries a license header.

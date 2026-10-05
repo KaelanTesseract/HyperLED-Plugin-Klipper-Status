@@ -2,9 +2,9 @@
   "format": 1,
   "id": "klipper-status",
   "name": "Klipper Status Display",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "author": "Dennis Guse",
-  "license": "PolyForm-Noncommercial-1.0.0",
+  "license": "EUPL-1.2",
   "description": "Shows the state of a Klipper 3D printer (via Moonraker) as light: idle, preheating, print progress, pause, error, finished.",
   "needs": {
     "api": 1,

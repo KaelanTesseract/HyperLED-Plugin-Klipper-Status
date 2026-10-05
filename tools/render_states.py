@@ -2,8 +2,7 @@
 # HyperLED plugin "Klipper-Statusanzeige": draws pictures of what the script shows.
 #
 # Copyright (c) 2026 Dennis Guse
-# Licensed under the PolyForm Noncommercial License 1.0.0 (see the LICENSE file of this repository).
-# Commercial use needs a commercial license from the author.
+# Licensed under the EUPL, Version 1.2 (see the LICENSE file of this repository).
 """Runs the plugin's Lua script (src/klipper-status.lua) on a simulated strip for a set of printer states and
 draws the LEDs it would light into docs/images/states.png and docs/images/directions.png. The pictures
 are therefore the script's own output, not hand-made drawings. Needs Pillow and lupa:

@@ -175,17 +175,12 @@ Dieses Plugin ist eine eigene Neuentwicklung für HyperLED. Es enthält keinen C
 
 [**HyperLED**](https://github.com/KaelanTesseract/HyperLED) ist ein ESP32-S3-LED-Controller mit Glassmorphism-Weboberfläche, Effekten, Szenen, Matrix-Panels, Master/Slave-Gleichlauf über einen Kabelbus oder ESP-NOW, MQTT mit Home-Assistant-Erkennung, Updates über die Luft und **Plugins** wie diesem. Wer wissen will, was ein Plugin ist und was es darf, beginnt mit [Plugins nutzen](https://github.com/KaelanTesseract/HyperLED/blob/main/docs/de/09_Plugins_nutzen.md), und wer ein eigenes schreiben will, mit [Plugins entwickeln](https://github.com/KaelanTesseract/HyperLED/blob/main/docs/de/10_Plugins_entwickeln.md).
 
-Dieses Plugin ist ein eigenständiges Werk und kein Teil von HyperLED. HyperLED selbst steht unter der EUPL-1.2; dieses Plugin unter der unten beschriebenen Lizenz.
+Dieses Plugin ist ein eigenes Repository und kein Teil der HyperLED-Firmware; wie HyperLED steht es unter der EUPL-1.2.
 
 ## Lizenz
 
 Copyright (c) 2026 Dennis Guse.
 
-Dieses Plugin steht unter der [**PolyForm Noncommercial License 1.0.0**](LICENSE) ([Text online](https://polyformproject.org/licenses/noncommercial/1.0.0), englisch):
+Dieses Plugin ist Open Source unter der [**European Union Public Licence 1.2 (EUPL-1.2)**](LICENSE), derselben Lizenz wie HyperLED selbst. Du darfst es unter den Bedingungen der Lizenz benutzen, ändern und weitergeben, auch kommerziell.
 
-- **Frei für nichtkommerzielle Nutzung.** Benutzen, kopieren, ändern und weitergeben für den privaten Gebrauch, Hobbyprojekte, Lernen und Forschung sowie für gemeinnützige, Bildungs- und öffentliche Einrichtungen, so wie die Lizenz es beschreibt.
-- **Kommerzielle Nutzung braucht eine kommerzielle Lizenz vom Autor.** Wer das Plugin in einem Unternehmen, in einem Produkt oder sonst auf eine Weise nutzen will, mit der Geld verdient wird, kann bei mir eine Lizenz kaufen. Melde dich über mein GitHub-Profil ([KaelanTesseract](https://github.com/KaelanTesseract)), zum Beispiel mit einem Issue „Commercial license“ in diesem Repository.
-
-Die Plugin-Datei nennt die Lizenz im Feld `license` (`PolyForm-Noncommercial-1.0.0`), und das Skript trägt einen Lizenzkopf. Der Hinweis, der mit Kopien mitgehen muss, steht in [`NOTICE`](NOTICE).
-
-Ein Wort dazu: Weil kommerzielle Nutzung nicht frei ist, ist das **quelloffen einsehbar** („source-available“), aber kein „Open Source“ im Sinne der Definition der Open Source Initiative. Alles darf für nichtkommerzielle Zwecke gelesen, geändert und weitergegeben werden. Verbindlich ist der PolyForm-Text; dieser Abschnitt fasst ihn nur zusammen.
+Die Plugin-Datei nennt die Lizenz im Feld `license` (`EUPL-1.2`), und das Skript trägt einen Lizenzkopf.

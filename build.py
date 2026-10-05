@@ -2,8 +2,7 @@
 # HyperLED plugin "Klipper Status Display": builds klipper-status.json.
 #
 # Copyright (c) 2026 Dennis Guse
-# Licensed under the PolyForm Noncommercial License 1.0.0 (see the LICENSE file of this repository).
-# Commercial use needs a commercial license from the author.
+# Licensed under the EUPL, Version 1.2 (see the LICENSE file of this repository).
 """A plugin file is plain JSON, and JSON has no multi-line strings, so the Lua script cannot be written
 in it comfortably. The script lives in src/klipper-status.lua and the rest of the plugin in
 src/klipper-status.template.json; this puts the script into the template's "script" field and writes
