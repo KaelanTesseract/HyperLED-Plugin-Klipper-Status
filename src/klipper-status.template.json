@@ -1,11 +1,11 @@
 {
   "format": 1,
   "id": "klipper-status",
-  "name": "Klipper-Statusanzeige",
-  "version": "1.6.1",
-  "author": "HyperLED",
-  "license": "EUPL-1.2",
-  "description": "Zeigt den Zustand eines Klipper-3D-Druckers (über Moonraker) als Licht: Leerlauf, Vorheizen, Druckfortschritt, Pause, Fehler, fertig.",
+  "name": "Klipper Status Display",
+  "version": "1.7.0",
+  "author": "Dennis Guse",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "description": "Shows the state of a Klipper 3D printer (via Moonraker) as light: idle, preheating, print progress, pause, error, finished.",
   "needs": {
     "api": 1,
     "script": 1
