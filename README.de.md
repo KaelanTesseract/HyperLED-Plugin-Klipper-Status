@@ -80,7 +80,7 @@ Die **Richtung** des Balkens ist eine Einstellung:
 
 ## Voraussetzungen
 
-- HyperLED mit **Plugin-Unterstützung und Skripten** (Master-Firmware 0.3.000 oder neuer). Läuft das Segment auf einem **Slave**, braucht der Slave für den Balken die Firmware 0.3.000 oder neuer; ein älterer Slave zeigt die Rückfall-Spalte der Tabelle oben.
+- HyperLED mit **Plugin-Unterstützung und Skripten** (Master-Firmware 0.3.000 oder neuer). Läuft das Segment auf einem **Slave**, braucht der Slave für den Balken die Firmware 0.3.001 oder neuer (dieses Plugin hat mehr Einstellungen, als in das eine Paket von 0.3.000 passen); ein älterer Slave zeigt die Rückfall-Spalte der Tabelle oben.
 - Ein Drucker mit **Klipper** und **Moonraker**, den das HyperLED im Netzwerk erreicht. Moonraker hört standardmäßig auf Port **7125**.
 - Moonraker verlangt von Adressen, die nicht zu den `trusted_clients` seiner `moonraker.conf` gehören, einen **API-Schlüssel**. Trage ihn dann in das Plugin ein (Feld *API-Schlüssel*); gehört dein HyperLED zu den `trusted_clients`, bleibt das Feld leer.
 

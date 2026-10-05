@@ -122,7 +122,7 @@ rendered by [`tools/render_states.py`](tools/render_states.py).)*
 ## Requirements
 
 - HyperLED with **plugin and script support** (Master firmware 0.3.000 or newer). If the segment runs on a **Slave**,
-  the Slave needs firmware 0.3.000 or newer for the bar; an older Slave shows the fallback column of the table above.
+  the Slave needs firmware 0.3.001 or newer for the bar (this plugin has more settings than fit into the single packet that 0.3.000 uses); an older Slave shows the fallback column of the table above.
 - A printer with **Klipper** and **Moonraker** that HyperLED can reach on the network. Moonraker listens on port
   **7125** by default.
 - For addresses that are not among the `trusted_clients` in its `moonraker.conf`, Moonraker asks for an **API key**.
